@@ -1,3 +1,3 @@
-<h1 text-align=center>
+<h1 align=center>
 	ChatBox App
 <h1/>
