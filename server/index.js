@@ -2,21 +2,30 @@
 const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
-const router = require("./router")
+const router = require("./router");
+const {addUser, removeUser, getUser, getUsersInRoom} = require("./users");
 
 //configs
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+	cors: {
+		origin: '*',
+	}
+});
 
 //socket io connection
 
 io.on("connect", (socket) => {
-	console.log("we have a new connection!");
+	socket.on("join", ({name, room}, callback) => {
+		console.log(name);
+		console.log(room);
+	});
 
 	socket.on("disconnect", () => {
 		console.log("user had left")
 	});
+
 });
 
 
