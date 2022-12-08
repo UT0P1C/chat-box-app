@@ -27,7 +27,10 @@ const Join = () => {
 					}}/>
 				</div>
 
-				<Link to={`/chat?name=${name}&room=${room}`} onClick={e => !name || !room ? e.preventDefault() : null}>
+				<Link 
+				to={`/chat?name=${name}&room=${room}`} 
+				onClick={e => !name || !room ? e.preventDefault() : null}
+				>
 					<button className='btn' type='submit'>
 						<span>Entrar</span>
 						<BiLogIn/>
